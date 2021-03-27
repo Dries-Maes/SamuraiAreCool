@@ -119,5 +119,47 @@ namespace IntroToEF.Business
         {
             return _repo.GetSamurai(id, true);
         }
+
+        public void AddSamurai()
+        {
+            string name = InputName();
+            string dynasty = InputDynasty();
+            List<Horse> horses = InputHorses();
+            var samurai = new Samurai
+            {
+                Name = name,
+                Dynasty = dynasty,
+                Horses = horses
+            };
+        }
+
+        public string InputName()
+        {
+            Console.Write("Name of the Samurai to add:");
+            string name = Console.ReadLine();
+            // to do add valid input checks
+            return name;
+        }
+
+        public string InputDynasty()
+        {
+            Console.Write("Dynasty of the Samurai to add:");
+            string dynasty = Console.ReadLine();
+            // to do add valid input checks
+            return dynasty;
+        }
+
+        public List<Horse> InputHorses()
+        {
+            List<Horse> horses = new List<Horse>();
+            bool AddAnotherHorse = false;
+            do
+            {
+                Console.Write("The name of this Horse:");
+                string name = Console.ReadLine();
+            } while (AddAnotherHorse);
+            // to do add valid input checks
+            return horses;
+        }
     }
 }

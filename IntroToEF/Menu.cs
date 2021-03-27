@@ -42,7 +42,7 @@ namespace IntroToEF
 
                 case 0:
                     Console.Clear();
-                    MainMenu();
+                    Environment.Exit(0);
                     break;
             };
         }
@@ -55,7 +55,7 @@ namespace IntroToEF
             {
                 case 1:
                     Console.Clear();
-                    logic.ToBeImplemented("Add Samurai");
+                    logic.AddSamurai();
                     AddData();
                     break;
 
