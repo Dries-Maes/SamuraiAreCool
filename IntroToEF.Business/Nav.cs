@@ -101,5 +101,17 @@ namespace IntroToEF.Business
             int padLeft = spaces / 2 + source.Length;
             return source.PadLeft(padLeft).PadRight(length);
         }
+
+        public void ShowKatana()
+        {
+            string katana =
+@"                                          /\                                ______,....------,
+                            /VVVVVVVVVVVVVV|=======================""""""""""""""""""        ___,..--'
+                            `^^^^^^^^^^^^^^|=========================-----------""""""""
+                                         \/";
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine(katana);
+            Console.ResetColor();
+        }
     }
 }

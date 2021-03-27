@@ -21,6 +21,7 @@ namespace IntroToEF
 
         public void MainMenu()
         {
+            nav.ShowKatana();
             nav.MenuTopBanner("Add data", "Select Samurai", "Search Data");
 
             switch (nav.MenuOptions(3))
@@ -81,7 +82,7 @@ namespace IntroToEF
         public void SelectSamurai()
         {
             nav.MenuTopBanner("Update Samurai", "Delete Samurai");
-
+            logic.ShowSamurai();
             switch (nav.MenuOptions(2))
             {
                 case 1:
