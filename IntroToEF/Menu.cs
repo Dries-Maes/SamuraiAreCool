@@ -81,7 +81,7 @@ namespace IntroToEF
         public void SelectSamurai()
         {
             nav.MenuTopBanner("Update Samurai", "Delete Samurai");
-
+            logic.GetAllSamurais();
             switch (nav.MenuOptions(2))
             {
                 case 1:

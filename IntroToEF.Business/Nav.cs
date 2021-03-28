@@ -59,7 +59,7 @@ namespace IntroToEF.Business
             {
                 if (!String.IsNullOrEmpty(item)) usedItems.Add(item);
             }
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             string HorizontaleLijn = new String('─', Console.WindowWidth - 1);
             Console.WriteLine(HorizontaleLijn);
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -71,11 +71,12 @@ namespace IntroToEF.Business
             {
                 Console.Write(" Vul in  ".PadRight(Console.WindowWidth / 3 - 1));
             }
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.Write(PadLeftRight(" S A M U R A I  -  A R E  -  C O O L ".PadRight(30).ToUpper(), Console.WindowWidth / 3));
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine($"{DateTime.Now} ".PadLeft(Console.WindowWidth / 3));
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(HorizontaleLijn);
             Console.ForegroundColor = ConsoleColor.Cyan;
 
@@ -87,7 +88,7 @@ namespace IntroToEF.Business
                     Console.Write(PadLeftRight($"{j + 1}.{usedItems[j]} ", Console.WindowWidth / usedItems.Count - 2));
                 }
 
-                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("\n" + HorizontaleLijn);
             }
 
@@ -100,6 +101,18 @@ namespace IntroToEF.Business
             int spaces = length - source.Length;
             int padLeft = spaces / 2 + source.Length;
             return source.PadLeft(padLeft).PadRight(length);
+        }
+
+        public void ShowKatana()
+        {
+            string katana =
+@"                                          /\  S a m u r a i  A r e  C o o l ______,....------,
+                            /VVVVVVVVVVVVVV|=======================""""""""""""""""""        ___,..--'
+                            `^^^^^^^^^^^^^^|=========================-----------""""""""
+                                          \/";
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(katana);
+            Console.ResetColor();
         }
     }
 }

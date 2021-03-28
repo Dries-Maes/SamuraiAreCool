@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace IntroToEF.Data.Migrations
 {
-    [DbContext(typeof(SamuraiContext))]
+    [DbContext(typeof(SamuraiAreCoolContext))]
     partial class SamuraiContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

@@ -8,11 +8,11 @@ namespace IntroToEF.Business
     public class Logic
     {
         // Composition
-        private ISamuraiRepo _repo;
+        private IMichielRepo _repo;
 
         public Logic()
         {
-            _repo = new SamuraiRepo();
+            _repo = new MichielRepo();
         }
 
         public void ToBeImplemented(string what)
@@ -92,9 +92,28 @@ namespace IntroToEF.Business
             _repo.AddSamurai(veteran);
         }
 
+        public void ShowSamurai()
+        {
+            var samurais = _repo.GetSamurais();
+        }
+
         public void GetAllSamurais()
         {
             var samurais = _repo.GetSamurais();
+            foreach (Samurai samurai in samurais)
+            {
+                Console.WriteLine($"Name: {samurai.Name} from Dynasty: {samurai.Dynasty}");
+                foreach (Quote samuraiQuote in samurai.Quotes)
+                {
+                    Console.WriteLine(samurai.Name + " once said:" + samuraiQuote);
+                }
+                int HorseCount = 1;
+                foreach (Horse samuraiHorse in samurai.Horses)
+                {
+                    Console.WriteLine($"Horse {HorseCount} runs by name {samuraiHorse.Name} " +
+                        $"is{(samuraiHorse.IsWarHorse ? " Not " : " ")}a warhorse");
+                }
+            }
         }
 
         public void RenameSamurai(int id, string name)
@@ -157,9 +176,23 @@ namespace IntroToEF.Business
             {
                 Console.Write("The name of this Horse:");
                 string name = Console.ReadLine();
+                // to do add valid input checks
+                Console.Write("Do You want to add another horse?(Y/N)");
+
+                string key = YesNo();
+                if ("Yy".Contains(key)) AddAnotherHorse = true;
             } while (AddAnotherHorse);
-            // to do add valid input checks
             return horses;
+        }
+
+        private static string YesNo()
+        {
+            string key;
+            do
+            {
+                key = Console.ReadKey().ToString();
+            } while (!"YyNn".Contains(key));
+            return key;
         }
     }
 }
