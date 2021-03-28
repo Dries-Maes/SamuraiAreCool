@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using IntroToEF.Data.Entities;
+using System.Threading;
 
 namespace IntroToEF
 {
@@ -59,7 +60,7 @@ namespace IntroToEF
                     _nav.MenuTopBanner("0");
                     Samurai createdSamurai = _entityFactory.SamuraiFactory();
                     Console.Clear();
-                    if (createdSamurai != null)
+                    if (createdSamurai.Id == 0)
                     {
                         UpdateSamurai(createdSamurai.Id);
                     }
@@ -70,13 +71,11 @@ namespace IntroToEF
                     Console.Clear();
                     Battle createdBattle = _entityFactory.BattleFactory();
                     Console.Clear();
-                    if (createdBattle != null)
+                    if (createdBattle.Id == null)
                     {
                         ToBeImplemented("Update Battles");
-                        // UpdateBattle(createdBattle.Id);
-                        AddData();
+                        // TODO: UpdateBattle(createdBattle.Id);
                     }
-                    ToBeImplemented("Add Battle");
                     AddData();
                     break;
 

@@ -34,7 +34,7 @@ namespace IntroToEF
                 Console.WriteLine("Samurai already exists! \nLeaving wizzard... ");
                 Nav.ResetTextColor();
                 Thread.Sleep(2000);
-                return null;
+                return samurai;
             }
 
             Console.WriteLine("What is his Dynasty? (press enter to skip)");
@@ -76,10 +76,10 @@ namespace IntroToEF
                 Console.WriteLine("Battle exists! Leaving wizzard... ");
                 Nav.ResetTextColor();
                 Thread.Sleep(2000);
-                return null;
+                return battle;
             }
 
-            Console.WriteLine("What is the year of this Battle?(*Required: enter a valid year)");
+            Console.WriteLine("What is the year of this Battle?(*Requires: enter a valid year)");
             battle.Year = InputYear();
             return _battleLogic.CreateBattle(battle);
         }
