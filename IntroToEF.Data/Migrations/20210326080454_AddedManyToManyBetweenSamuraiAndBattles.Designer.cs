@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace IntroToEF.Data.Migrations
 {
-    [DbContext(typeof(SamuraiContext))]
+    [DbContext(typeof(SamuraiAreCoolContext))]
     [Migration("20210326080454_AddedManyToManyBetweenSamuraiAndBattles")]
     partial class AddedManyToManyBetweenSamuraiAndBattles
     {

@@ -8,11 +8,11 @@ namespace IntroToEF.Business
     public class Logic
     {
         // Composition
-        private ISamuraiRepo _repo;
+        private IMichielRepo _repo;
 
         public Logic()
         {
-            _repo = new SamuraiRepo();
+            _repo = new MichielRepo();
         }
 
         public void ToBeImplemented(string what)
