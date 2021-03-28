@@ -26,7 +26,7 @@ namespace IntroToEF.Data.Repositories
 
         public Samurai GetSamurai(string name)
         {
-            return context.Samurais.FirstOrDefault(x => x.Name == name);
+            return context.Samurais.FirstOrDefault(x => x.Name.ToLower() == name.ToLower());
         }
     }
 }

@@ -31,7 +31,7 @@ namespace IntroToEF
             if (samurai.Id > 0)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Samurai exists! Leaving wizzard... ");
+                Console.WriteLine("Samurai already exists! \nLeaving wizzard... ");
                 Nav.ResetTextColor();
                 Thread.Sleep(2000);
                 return null;

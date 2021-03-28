@@ -53,6 +53,7 @@ namespace IntroToEF.Business
                 in1 = null;
                 noBack = 0;
             }
+
             string[] menuItems = new string[7] { in1, in2, in3, in4, in5, in6, in7 };
             List<string> usedItems = new List<string>();
             foreach (var item in menuItems)
