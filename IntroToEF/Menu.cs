@@ -56,6 +56,7 @@ namespace IntroToEF
             {
                 case 1:
                     Console.Clear();
+                    _nav.MenuTopBanner("0");
                     Samurai createdSamurai = _entityFactory.SamuraiFactory();
                     Console.Clear();
                     if (createdSamurai != null)
