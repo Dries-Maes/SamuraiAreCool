@@ -8,5 +8,12 @@ namespace IntroToEF.Data.Repositories
 {
     class SamuraiRepo
     {
+        private SamuraiAreCoolContext context;
+
+        public SamuraiRepo()
+        {
+            // Open connection to database
+            context = new SamuraiAreCoolContext();
+        }
     }
 }

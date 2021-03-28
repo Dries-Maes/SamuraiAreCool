@@ -9,13 +9,13 @@ namespace IntroToEF
 {
     public class Menu
     {
-        private Logic logic;
+        private VerVanLogic logic;
 
         private Nav nav;
 
         public Menu()
         {
-            logic = new Logic();
+            logic = new VerVanLogic();
             nav = new Nav();
         }
 

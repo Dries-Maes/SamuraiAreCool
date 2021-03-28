@@ -5,12 +5,12 @@ using System.Collections.Generic;
 
 namespace IntroToEF.Business
 {
-    public class Logic
+    public class VerVanLogic
     {
         // Composition
         private IMichielRepo _repo;
 
-        public Logic()
+        public VerVanLogic()
         {
             _repo = new MichielRepo();
         }
