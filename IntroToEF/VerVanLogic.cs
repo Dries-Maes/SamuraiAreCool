@@ -47,22 +47,11 @@ namespace IntroToEF.Business
 
         public void AddSamuraiWithHorses()
         {
-            var samurai = new Samurai
+            var samurai = new Samurai("Samurai With Horses")
             {
-                Name = "Samurai With Horses",
                 Dynasty = "Sengoku",
                 Horses = new List<Horse>
                 {
-                    new Horse
-                    {
-                        IsWarHorse = true,
-                        Name = "Roach"
-                    },
-                    new Horse
-                    {
-                        IsWarHorse = false,
-                        Name = "Boeddika"
-                    }
                 }
             };
 
@@ -71,9 +60,8 @@ namespace IntroToEF.Business
 
         public void AddSamuraiWhoFoughtInBattles()
         {
-            Samurai veteran = new Samurai
+            Samurai veteran = new Samurai("A weary broken man")
             {
-                Name = "A weary broken man",
                 Battles = new List<Battle>
                 {
                     new Battle
@@ -144,12 +132,6 @@ namespace IntroToEF.Business
             string name = InputName();
             string dynasty = InputDynasty();
             List<Horse> horses = InputHorses();
-            var samurai = new Samurai
-            {
-                Name = name,
-                Dynasty = dynasty,
-                Horses = horses
-            };
         }
 
         public string InputName()
@@ -179,20 +161,21 @@ namespace IntroToEF.Business
                 // to do add valid input checks
                 Console.Write("Do You want to add another horse?(Y/N)");
 
-                string key = YesNo();
+                string key = "";
                 if ("Yy".Contains(key)) AddAnotherHorse = true;
             } while (AddAnotherHorse);
             return horses;
         }
 
-        private static string YesNo()
+        private static bool IsYes()
         {
             string key;
             do
             {
                 key = Console.ReadKey().ToString();
             } while (!"YyNn".Contains(key));
-            return key;
+
+            return "yY".Contains(key);
         }
     }
 }

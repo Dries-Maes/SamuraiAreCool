@@ -16,22 +16,6 @@ namespace IntroToEF.Data.Repositories
             context = new SamuraiAreCoolContext();
         }
 
-        public void AddSamurai(string name)
-        {
-            // Create a single object to be inserted
-            var samurai = new Samurai
-            {
-                Name = name
-            };
-
-            // Add object(s) to be tracked by context
-            // Specify target table and data to be added
-            context.Samurais.Add(samurai);
-
-            // Push changes to DB
-            context.SaveChanges();
-        }
-
         public void AddSamurai(Samurai samurai)
         {
             context.Add(samurai);
@@ -157,13 +141,13 @@ namespace IntroToEF.Data.Repositories
         public void AddDifferentObjectsToContext()
         {
             // Objects can be inserted in multiple tables in one statement
-            var quote = new Quote
+            var quote = new Quote("")
             {
                 SamuraiId = 1,
                 Text = "If the Bird does not sing, Kill it."
             };
 
-            var horse = new Horse
+            var horse = new Horse("")
             {
                 SamuraiId = 1,
                 Age = 5,
@@ -183,6 +167,11 @@ namespace IntroToEF.Data.Repositories
                 .ToList();
 
             return samurais;
+        }
+
+        public void AddSamurai(string name)
+        {
+            throw new NotImplementedException();
         }
     }
 }

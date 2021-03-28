@@ -1,4 +1,6 @@
-﻿using System;
+﻿using IntroToEF.Data.Entities;
+using IntroToEF.Data.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,28 @@ using System.Threading.Tasks;
 
 namespace IntroToEF.Business
 {
-    class SamuraiLogic
+    public class SamuraiLogic
     {
+        private SamuraiRepo _samuraiRepo;
+
+        public SamuraiLogic()
+        {
+            _samuraiRepo = new SamuraiRepo();
+        }
+
+        public Samurai CreateSamurai(Samurai samurai)
+        {
+            return _samuraiRepo.AddSamurai(samurai);
+        }
+
+        public Samurai NewSamurai(string name)
+        {
+            Samurai newSamurai = _samuraiRepo.GetSamurai(name);
+            if (newSamurai == null)
+            {
+                newSamurai = new Samurai(name);
+            }
+            return newSamurai;
+        }
     }
 }

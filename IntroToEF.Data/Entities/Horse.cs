@@ -20,5 +20,10 @@ namespace IntroToEF.Data.Entities
         public Samurai Samurai { get; set; }
 
         public int SamuraiId { get; set; }
+
+        public Horse(string name)
+        {
+            Name = name;
+        }
     }
 }
