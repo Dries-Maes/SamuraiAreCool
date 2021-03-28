@@ -58,27 +58,27 @@ namespace IntroToEF.Business
             _repo.AddSamurai(samurai);
         }
 
-        public void AddSamuraiWhoFoughtInBattles()
-        {
-            Samurai veteran = new Samurai("A weary broken man")
-            {
-                Battles = new List<Battle>
-                {
-                    new Battle
-                    {
-                        Name = "Okinagawa",
-                        Year = 1557
-                    },
-                    new Battle
-                    {
-                        Name = "Fukushima",
-                        Year = 2011
-                    }
-                }
-            };
+        //public void AddSamuraiWhoFoughtInBattles()
+        //{
+        //    Samurai veteran = new Samurai("A weary broken man")
+        //    {
+        //        Battles = new List<Battle>
+        //        {
+        //            new Battle
+        //            {
+        //                Name = "Okinagawa",
+        //                Year = 1557
+        //            },
+        //            new Battle
+        //            {
+        //                Name = "Fukushima",
+        //                Year = 2011
+        //            }
+        //        }
+        //    };
 
-            _repo.AddSamurai(veteran);
-        }
+        //    _repo.AddSamurai(veteran);
+        //}
 
         public void ShowSamurai()
         {

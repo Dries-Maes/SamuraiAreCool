@@ -68,7 +68,7 @@ namespace IntroToEF
 
         internal Battle BattleFactory()
         {
-            Console.WriteLine("what is the name o the battle?");
+            Console.WriteLine("what is the name of the battle?");
             var battle = _battleLogic.NewBattle(Console.ReadLine());
             if (battle.Id > 0)
             {
