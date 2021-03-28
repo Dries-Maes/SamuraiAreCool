@@ -114,5 +114,21 @@ namespace IntroToEF.Business
             Console.WriteLine(katana);
             Console.ResetColor();
         }
+
+        public static bool IsYes()
+        {
+            char key;
+            do
+            {
+                key = Console.ReadKey().KeyChar;
+                Console.CursorLeft = 0;
+            } while (!"YyNn".Contains(key));
+
+            return "yY".Contains(key);
+        }
+
+        public static void ResetTextColor()
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+        }
     }
-}

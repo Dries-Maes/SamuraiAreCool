@@ -4,26 +4,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IntroToEF.Data.Entities;
 
 namespace IntroToEF
 {
     public class Menu
     {
-        private VerVanLogic logic;
+        private EntityFactory _entityFactory;
 
-        private Nav nav;
+        private Nav _nav;
 
         public Menu()
         {
-            logic = new VerVanLogic();
-            nav = new Nav();
+            _entityFactory = new EntityFactory();
+            _nav = new Nav();
         }
 
         public void MainMenu()
         {
-            nav.MenuTopBanner("Add data", "Select Samurai", "Search Data");
+            _nav.MenuTopBanner("Add data", "Select Samurai", "Search Data");
 
-            switch (nav.MenuOptions(3))
+            switch (_nav.MenuOptions(3))
             {
                 case 1:
                     Console.Clear();
@@ -49,25 +50,30 @@ namespace IntroToEF
 
         public void AddData()
         {
-            nav.MenuTopBanner("Add Samurai", "Add Battle", "Add Dynasty");
+            _nav.MenuTopBanner("Add Samurai", "Add Battle", "Add Dynasty");
 
-            switch (nav.MenuOptions(3))
+            switch (_nav.MenuOptions(3))
             {
                 case 1:
                     Console.Clear();
-                    logic.AddSamurai();
+                    Samurai createdSamurai = _entityFactory.SamuraiFactory();
+                    Console.Clear();
+                    if (createdSamurai != null)
+                    {
+                        UpdateSamurai(createdSamurai.Id);
+                    }
                     AddData();
                     break;
 
                 case 2:
                     Console.Clear();
-                    logic.ToBeImplemented("Add Battle");
+                    ToBeImplemented("Add Battle");
                     AddData();
                     break;
 
                 case 3:
                     Console.Clear();
-                    logic.ToBeImplemented("Add Dynasty");
+                    ToBeImplemented("Add Dynasty");
                     AddData();
                     break;
 
@@ -80,18 +86,20 @@ namespace IntroToEF
 
         public void SelectSamurai()
         {
-            nav.MenuTopBanner("Update Samurai", "Delete Samurai");
-            logic.GetAllSamurais();
-            switch (nav.MenuOptions(2))
+            _nav.MenuTopBanner("Update Samurai", "Delete Samurai");
+
+            switch (_nav.MenuOptions(2))
             {
                 case 1:
+                    Console.WriteLine("Enter Samurai ID:");
+                    int ID = Convert.ToInt32(Console.ReadLine());
                     Console.Clear();
-                    UpdateSamurai();
+                    UpdateSamurai(ID);
                     break;
 
                 case 2:
                     Console.Clear();
-                    logic.ToBeImplemented("Delete Samurai");
+                    ToBeImplemented("Delete Samurai");
                     SelectSamurai();
                     break;
 
@@ -102,39 +110,39 @@ namespace IntroToEF
             };
         }
 
-        public void UpdateSamurai()
+        public void UpdateSamurai(int ID = 0)
         {
-            nav.MenuTopBanner("Update Name", "Update Dynasty", "Update Battles", "Update Horses", "Update Quotes");
-
-            switch (nav.MenuOptions(5))
+            _nav.MenuTopBanner("Update Name", "Update Dynasty", "Update Battles", "Update Horses", "Update Quotes");
+            Console.WriteLine($"Displaying Samurai with ID {ID}: (to be added)");
+            switch (_nav.MenuOptions(5))
             {
                 case 1:
                     Console.Clear();
-                    logic.ToBeImplemented("Update Name");
+                    ToBeImplemented("Update Name");
                     UpdateSamurai();
                     break;
 
                 case 2:
                     Console.Clear();
-                    logic.ToBeImplemented("Update Dynasty");
+                    ToBeImplemented("Update Dynasty");
                     UpdateSamurai();
                     break;
 
                 case 3:
                     Console.Clear();
-                    logic.ToBeImplemented("Update Battles");
+                    ToBeImplemented("Update Battles");
                     UpdateSamurai();
                     break;
 
                 case 4:
                     Console.Clear();
-                    logic.ToBeImplemented("Update Horses");
+                    ToBeImplemented("Update Horses");
                     UpdateSamurai();
                     break;
 
                 case 5:
                     Console.Clear();
-                    logic.ToBeImplemented("Update Quotes");
+                    ToBeImplemented("Update Quotes");
                     UpdateSamurai();
                     break;
 
@@ -147,43 +155,43 @@ namespace IntroToEF
 
         public void SearchData()
         {
-            nav.MenuTopBanner("Search All", "Search Samurai", "Search Dynasty", "Search Horses", "Search Battles", "Search Quotes");
+            _nav.MenuTopBanner("Search All", "Search Samurai", "Search Dynasty", "Search Horses", "Search Battles", "Search Quotes");
 
-            switch (nav.MenuOptions(6))
+            switch (_nav.MenuOptions(6))
             {
                 case 1:
                     Console.Clear();
-                    logic.ToBeImplemented("Search All");
+                    ToBeImplemented("Search All");
                     SearchData();
                     break;
 
                 case 2:
                     Console.Clear();
-                    logic.ToBeImplemented("Search Samurai");
+                    ToBeImplemented("Search Samurai");
                     SearchData();
                     break;
 
                 case 3:
                     Console.Clear();
-                    logic.ToBeImplemented("Search Dynasty");
+                    ToBeImplemented("Search Dynasty");
                     SearchData();
                     break;
 
                 case 4:
                     Console.Clear();
-                    logic.ToBeImplemented("Search Horses");
+                    ToBeImplemented("Search Horses");
                     SearchData();
                     break;
 
                 case 5:
                     Console.Clear();
-                    logic.ToBeImplemented("Search Battles");
+                    ToBeImplemented("Search Battles");
                     SearchData();
                     break;
 
                 case 6:
                     Console.Clear();
-                    logic.ToBeImplemented("Search Quotes");
+                    ToBeImplemented("Search Quotes");
                     SearchData();
                     break;
 
@@ -192,6 +200,14 @@ namespace IntroToEF
                     MainMenu();
                     break;
             };
+        }
+
+        public void ToBeImplemented(string what)
+
+        {
+            Console.WriteLine($"{what} is yet to be implemented! \nPress any key to go back");
+            Console.ReadKey();
+            Console.Clear();
         }
     }
 }

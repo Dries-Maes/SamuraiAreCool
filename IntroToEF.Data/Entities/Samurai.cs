@@ -20,5 +20,10 @@ namespace IntroToEF.Data.Entities
         public List<Horse> Horses { get; set; } = new List<Horse>();
 
         public List<Battle> Battles { get; set; } = new List<Battle>();
+
+        public Samurai(string name)
+        {
+            Name = name;
+        }
     }
 }
