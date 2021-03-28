@@ -5,7 +5,7 @@ using System;
 namespace IntroToEF.Data
 {
     // Context is absolutely essential in EF -> MUST inherit from DBContext
-    public class SamuraiAreCoolContext : DbContext
+    public class SamuraiAreCoolDBContext : DbContext
     {
         // Each entity that needs a table needs to be defined here
         public DbSet<Quote> Quotes { get; set; }

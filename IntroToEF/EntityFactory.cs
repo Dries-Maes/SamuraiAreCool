@@ -26,8 +26,8 @@ namespace IntroToEF
 
         public Samurai SamuraiFactory()
         {
-            Console.WriteLine("What is your Samurai name?");
-            var samurai = _samuraiLogic.NewSamurai(Console.ReadLine());
+            Console.WriteLine("What is your Samurai name?(*Required)");
+            var samurai = _samuraiLogic.NewSamurai(Console.ReadLine()); // not checking for valid input yet... empty user input can occur
             if (samurai.Id > 0)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -64,6 +64,35 @@ namespace IntroToEF
             } while (result);
 
             return _samuraiLogic.CreateSamurai(samurai);
+        }
+
+        internal Battle BattleFactory()
+        {
+            Console.WriteLine("what is the name o the battle?");
+            var battle = _battleLogic.NewBattle(Console.ReadLine());
+            if (battle.Id > 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Battle exists! Leaving wizzard... ");
+                Nav.ResetTextColor();
+                Thread.Sleep(2000);
+                return null;
+            }
+
+            Console.WriteLine("What is the year of this Battle?(*Required: enter a valid year)");
+            battle.Year = InputYear();
+            return _battleLogic.CreateBattle(battle);
+        }
+
+        private int InputYear()
+        {
+            int year = 0, x = 0, y = Console.CursorTop;
+            do
+            {
+                Console.SetCursorPosition(x, y);
+                year = Convert.ToInt32(Console.ReadLine());
+            } while (year < 1500);
+            return year;
         }
     }
 }

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace IntroToEF.Data.Migrations
 {
-    [DbContext(typeof(SamuraiAreCoolContext))]
+    [DbContext(typeof(SamuraiAreCoolDBContext))]
     [Migration("20210324080805_dynasty")]
     partial class dynasty
     {

@@ -8,12 +8,12 @@ namespace IntroToEF.Data.Repositories
 {
     public class MichielRepo : IMichielRepo
     {
-        private SamuraiAreCoolContext context;
+        private SamuraiAreCoolDBContext context;
 
         public MichielRepo()
         {
             // Open connection to database
-            context = new SamuraiAreCoolContext();
+            context = new SamuraiAreCoolDBContext();
         }
 
         public void AddSamurai(Samurai samurai)

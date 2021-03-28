@@ -21,5 +21,10 @@ namespace IntroToEF.Data.Entities
         public string Location { get; set; }
 
         public List<Samurai> Samurais { get; set; } = new List<Samurai>();
+
+        public Battle(string name)
+        {
+            Name = name;
+        }
     }
 }

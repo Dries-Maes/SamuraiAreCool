@@ -68,6 +68,14 @@ namespace IntroToEF
 
                 case 2:
                     Console.Clear();
+                    Battle createdBattle = _entityFactory.BattleFactory();
+                    Console.Clear();
+                    if (createdBattle != null)
+                    {
+                        ToBeImplemented("Update Battles");
+                        // UpdateBattle(createdBattle.Id);
+                        AddData();
+                    }
                     ToBeImplemented("Add Battle");
                     AddData();
                     break;
