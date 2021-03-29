@@ -22,7 +22,7 @@ namespace IntroToEF
 
         public void MainMenu()
         {
-            _nav.MenuTopBanner("Add data", "Select Samurai", "Search Data", "Credits");
+            _nav.MenuTopBanner("Add data", "Select Samurai", "Search Data", "Credits", "Exit");
 
             switch (_nav.MenuOptions(4))
             {
@@ -49,9 +49,14 @@ namespace IntroToEF
                     MainMenu();
                     break;
 
-                case 0:
+                case 5:
                     Console.Clear();
                     Environment.Exit(0);
+                    break;
+
+                case 0:
+                    Console.Clear();
+                    MainMenu();
                     break;
             };
         }
