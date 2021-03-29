@@ -24,7 +24,7 @@ namespace IntroToEF
         {
             _nav.MenuTopBanner("Add data", "Select Samurai", "Search Data", "Credits", "Exit");
 
-            switch (_nav.MenuOptions(4))
+            switch (_nav.MenuOptions(5))
             {
                 case 1:
                     Console.Clear();
