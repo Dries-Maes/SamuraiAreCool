@@ -145,5 +145,21 @@ namespace IntroToEF.Business
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
         }
+
+        public static void PrintColor(ConsoleColor color, string text, bool writeLine = false)
+        {
+            Console.ForegroundColor = color;
+            if (!writeLine)
+            {
+                Console.Write(text);
+
+            }
+            else
+            {
+                Console.WriteLine(text);
+            }
+            ResetTextColor();
+
+        }
     }
 }

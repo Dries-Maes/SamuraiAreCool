@@ -204,11 +204,23 @@ namespace IntroToEF
                 case 2:
                     Console.Clear();
                     _nav.MenuTopBanner("0");
+                    string input;
+                    List<Samurai> result;
+
+                    do
+                    {
                     Console.WriteLine("Search our database for Samurai:");
-                    string input = Console.ReadLine();
-                    Console.Clear();
+                    input = Console.ReadLine();
                     Waiting4DB();
-                    SelectSamurai(_searchEntities.PrintSamuraiContaining(input));
+                    result = _searchEntities.PrintSamuraiContaining(input);
+                        if (result.Count == 0)
+                        {
+                            Nav.PrintColor(ConsoleColor.Red, "-- ej, diene samurai, we én die ni gevonden eja --", true);
+                        }
+                    } while (result.Count == 0);
+
+                    Console.Clear();
+                    SelectSamurai(result);
 
                     SearchData();
                     break;
