@@ -14,10 +14,16 @@ namespace IntroToEF
 
         private Nav _nav;
 
+        private SearchEntities _searchEntities;
+
+        private BattleLogic _battleLogic;
+
         public Menu()
         {
             _entityFactory = new EntityFactory();
             _nav = new Nav();
+            _searchEntities = new SearchEntities();
+            _battleLogic = new BattleLogic();
         }
 
         public void MainMenu()
@@ -106,12 +112,12 @@ namespace IntroToEF
             };
         }
 
-        public void SelectSamurai()
+        public void SelectSamurai(List<Samurai> samurais = null)
         {
             _nav.MenuTopBanner("Update Samurai", "Delete Samurai");
             Console.Write("Waiting for Database...");
             Console.CursorLeft = 0;
-            _entityFactory.ListSamurai(_entityFactory.GetAllSamurai());
+            _entityFactory.ListSamurai(samurais == null? _entityFactory.GetAllSamurai():samurais);
             switch (_nav.MenuOptions(2))
             {
                 case 1:
@@ -191,7 +197,9 @@ namespace IntroToEF
 
                 case 2:
                     Console.Clear();
-                    ToBeImplemented("Search Samurai");
+                    _nav.MenuTopBanner("0");
+                    Console.WriteLine("Search our database for Samurai:");
+                    SelectSamurai(_searchEntities.PrintSamuraiContaining(Console.ReadLine())) ;
                     SearchData();
                     break;
 
@@ -209,7 +217,10 @@ namespace IntroToEF
 
                 case 5:
                     Console.Clear();
-                    ToBeImplemented("Search Battles");
+                    _nav.MenuTopBanner("0");
+                    Console.WriteLine("Search our database for Battles:") ;
+                    _entityFactory.ListBattles(_battleLogic.SearchBattlesByName(Console.ReadLine()));
+                    Console.ReadLine();
                     SearchData();
                     break;
 

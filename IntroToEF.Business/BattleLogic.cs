@@ -31,5 +31,11 @@ namespace IntroToEF.Business
             }
             return newBattle;
         }
+
+        public List<Battle> SearchBattlesByName(string name)
+        {
+            return _battleRepo.SearchBattlesByName(name);
+        }
+
     }
 }

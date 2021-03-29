@@ -1,4 +1,5 @@
 ﻿using IntroToEF.Data.Entities;
+using System.Collections.Generic;
 
 namespace IntroToEF.Data.Repositories
 {
@@ -6,5 +7,6 @@ namespace IntroToEF.Data.Repositories
     {
         Battle AddBattle(Battle battle);
         Battle GetBattle(string name);
+        List<Battle> SearchBattlesByName(string name);
     }
 }

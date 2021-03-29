@@ -1,4 +1,5 @@
 ﻿using IntroToEF.Data.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,5 +29,15 @@ namespace IntroToEF.Data.Repositories
         {
             return context.Battles.FirstOrDefault(x => x.Name == name);
         }
+
+        public List<Battle> SearchBattlesByName(string name)
+        {
+            return context.Battles
+                .Include(x => x.Samurais)
+                .Where(x => x.Name
+                    .Contains(name))
+                .ToList();
+        }
+
     }
 }

@@ -119,5 +119,21 @@ namespace IntroToEF
                 }
             }
         }
+
+        public void ListBattles(List<Battle> battles)
+        {
+            Console.WriteLine("Id\t | Battlename\t\t | Samurai in battle ");
+            Console.WriteLine();
+            foreach (Battle battle in battles)
+            {
+                Console.Write($"{battle.Id}\t | {battle.Name}\t\t");
+                foreach (Samurai samurai in battle.Samurais)
+                {
+                    Console.Write(" | " + samurai.Name + "\n\t\t\t\t");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+        }
     }
 }
