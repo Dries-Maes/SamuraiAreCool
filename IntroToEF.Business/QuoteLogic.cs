@@ -4,15 +4,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IntroToEF.Data.Repositories;
 
 namespace IntroToEF.Business
 {
     public class QuoteLogic
     {
-        public Quote CreateQuote(string text)
+     
+
+        private IQuoteRepo _quoteRepo;
+
+        public QuoteLogic()
         {
-            Quote newQuote = new Quote(text);
+            _quoteRepo = new QuoteRepo();
+        }
+
+        public Quote CreateQuote(Quote quote)
+        {
+            return _quoteRepo.AddQuote(quote);
+        }
+
+        public Quote NewQuote(string text)
+        {
+            Quote newQuote = _quoteRepo.GetQuote(text);
+            if (newQuote == null)
+            {
+                newQuote = new Quote(text);
+            }
             return newQuote;
         }
     }
+
+
 }

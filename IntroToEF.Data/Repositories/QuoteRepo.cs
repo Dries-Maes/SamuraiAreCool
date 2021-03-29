@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace IntroToEF.Data.Repositories
 {
-    internal class QuoteRepo : IQuoteRepo
+    public class QuoteRepo : IQuoteRepo
     {
         private SamuraiAreCoolDBContext _context;
 
@@ -21,6 +21,16 @@ namespace IntroToEF.Data.Repositories
 
             _context.Quotes.Add(quote);
             _context.SaveChanges();
+        }
+
+        public Quote AddQuote(Quote quote)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Quote GetQuote(string text)
+        {
+            throw new System.NotImplementedException();
         }
 
         public List<Quote> GetQuotes()

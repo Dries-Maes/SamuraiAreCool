@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IntroToEF.Data.Repositories
 {
-    class HorseRepo : IHorseRepo
+    public class HorseRepo : IHorseRepo
     {
         private SamuraiAreCoolDBContext _context;
 
@@ -38,6 +38,11 @@ namespace IntroToEF.Data.Repositories
 
             _context.Horses.AddRange(myList);
             _context.SaveChanges();
+        }
+
+        public Horse GetHorse(string name)
+        {
+            throw new NotImplementedException();
         }
     }
 }

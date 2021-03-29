@@ -3,9 +3,10 @@ using System.Collections.Generic;
 
 namespace IntroToEF.Data.Repositories
 {
-    internal interface IQuoteRepo
+    public interface IQuoteRepo
     {
-        void AddQuote(string text);
+        Quote AddQuote(Quote quote);
         List<Quote> GetQuotes();
+        Quote GetQuote(string text);
     }
 }
