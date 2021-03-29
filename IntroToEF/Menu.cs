@@ -205,7 +205,11 @@ namespace IntroToEF
                     Console.Clear();
                     _nav.MenuTopBanner("0");
                     Console.WriteLine("Search our database for Samurai:");
-                    SelectSamurai(_searchEntities.PrintSamuraiContaining(Console.ReadLine())) ;
+                    string input = Console.ReadLine();
+                    Console.Clear();
+                    Waiting4DB();
+                    SelectSamurai(_searchEntities.PrintSamuraiContaining(input));
+
                     SearchData();
                     break;
 
