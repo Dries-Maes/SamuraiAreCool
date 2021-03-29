@@ -109,8 +109,7 @@ namespace IntroToEF
         public void SelectSamurai()
         {
             _nav.MenuTopBanner("Update Samurai", "Delete Samurai");
-            Console.Write("Waiting for Database...");
-            Console.CursorLeft = 0;
+            Waiting4DB();
             _entityFactory.ListSamurai(_entityFactory.GetAllSamurai());
             switch (_nav.MenuOptions(2))
             {
@@ -132,6 +131,12 @@ namespace IntroToEF
                     MainMenu();
                     break;
             };
+        }
+
+        private static void Waiting4DB()
+        {
+            Console.Write("Waiting for Database...");
+            Console.CursorLeft = 0;
         }
 
         public void UpdateSamurai(int ID = 0)
