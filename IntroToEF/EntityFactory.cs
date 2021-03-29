@@ -95,12 +95,14 @@ namespace IntroToEF
             return year;
         }
 
-        public void ListAllSamurai()
+        public List<Samurai> GetAllSamurai()
+        {
+            return _samuraiLogic.GetAllSamurais();
+        }
+
+        public void ListSamurai(List<Samurai> samurais)
         {
             int count = 0;
-            Console.Write("Waiting for Database...");
-            Console.CursorLeft = 0;
-            List<Samurai> samurais = _samuraiLogic.GetAllSamurais();
             foreach (Samurai samurai in samurais)
             {
                 count++;
