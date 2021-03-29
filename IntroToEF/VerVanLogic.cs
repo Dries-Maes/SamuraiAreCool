@@ -8,6 +8,7 @@ namespace IntroToEF.Business
     public class VerVanLogic
     {
         // Composition
+        // Kobe kan geen dingen wijzigen jonge
         private IMichielRepo _repo;
 
         public VerVanLogic()
