@@ -110,7 +110,7 @@ namespace IntroToEF.Business
 
             string k1 = @"              /\  S a m u r a i  A r e  C o o l ______,....------,";
             string k2 = @"/VVVVVVVVVVVVVV|=======================""""""""""""""""""        ___,..--'";
-            string k3 = @"`^^^^^^^^^^^^^^|=========================-----------""""""""            ";
+            string k3 = @"`^^^^^^^^^^^^^^|=========================-----------""""""""        ";
             string k4 = @"              \/                                                  ";
             Console.WriteLine("\n");
             Console.WriteLine(PadLeftRight("Credits:", Console.WindowWidth));
@@ -120,10 +120,10 @@ namespace IntroToEF.Business
             Console.WriteLine(PadLeftRight("Ward Impe", Console.WindowWidth));
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\n");
-            Console.WriteLine(PadLeftRight(k1, Console.WindowWidth));
-            Console.WriteLine(PadLeftRight(k2, Console.WindowWidth));
-            Console.WriteLine(PadLeftRight(k3, Console.WindowWidth));
-            Console.WriteLine(PadLeftRight(k4, Console.WindowWidth));
+            Console.WriteLine(PadLeftRight(k1, Console.WindowWidth - 1));
+            Console.WriteLine(PadLeftRight(k2, Console.WindowWidth - 1));
+            Console.WriteLine(PadLeftRight(k3, Console.WindowWidth - 1));
+            Console.WriteLine(PadLeftRight(k4, Console.WindowWidth - 1));
             Console.ResetColor();
             Console.WriteLine("\n");
             Console.WriteLine(PadLeftRight("© 2021 All Rights Reserved", Console.WindowWidth));
