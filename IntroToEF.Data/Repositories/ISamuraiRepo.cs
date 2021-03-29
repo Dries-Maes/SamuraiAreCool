@@ -1,4 +1,5 @@
 ﻿using IntroToEF.Data.Entities;
+using System.Collections.Generic;
 
 namespace IntroToEF.Data.Repositories
 {
@@ -6,5 +7,6 @@ namespace IntroToEF.Data.Repositories
     {
         Samurai AddSamurai(Samurai samurai);
         Samurai GetSamurai(string name);
+        List<Samurai> SearchSamuraiByName(string name);
     }
 }

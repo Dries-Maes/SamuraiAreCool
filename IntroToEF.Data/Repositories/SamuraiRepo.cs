@@ -28,5 +28,10 @@ namespace IntroToEF.Data.Repositories
         {
             return context.Samurais.FirstOrDefault(x => x.Name.ToLower() == name.ToLower());
         }
+
+        public List<Samurai> SearchSamuraiByName(string name)
+        {
+            return context.Samurais.Where(x => x.Name.Contains(name)).ToList();
+        }
     }
 }
