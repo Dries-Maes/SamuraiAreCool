@@ -94,5 +94,30 @@ namespace IntroToEF
             } while (year < 1500);
             return year;
         }
+
+        public List<Samurai> GetAllSamurai()
+        {
+            return _samuraiLogic.GetAllSamurais();
+        }
+
+        public void ListSamurai(List<Samurai> samurais)
+        {
+            int count = 0;
+            foreach (Samurai samurai in samurais)
+            {
+                count++;
+                Console.WriteLine($"({count}) Name: {samurai.Name} from Dynasty: {samurai.Dynasty}");
+                foreach (Quote samuraiQuote in samurai.Quotes)
+                {
+                    Console.WriteLine($"Quote: {samurai.Name} once said: '{samuraiQuote.Text}'.");
+                }
+                int HorseCount = 1;
+                foreach (Horse samuraiHorse in samurai.Horses)
+                {
+                    Console.WriteLine($"    Horse({HorseCount}): name {samuraiHorse.Name} " +
+                        $"is{(samuraiHorse.IsWarHorse ? " Not " : " ")}a warhorse.");
+                }
+            }
+        }
     }
 }

@@ -22,9 +22,9 @@ namespace IntroToEF
 
         public void MainMenu()
         {
-            _nav.MenuTopBanner("Add data", "Select Samurai", "Search Data");
+            _nav.MenuTopBanner("Add data", "Select Samurai", "Search Data", "Credits", "Exit");
 
-            switch (_nav.MenuOptions(3))
+            switch (_nav.MenuOptions(5))
             {
                 case 1:
                     Console.Clear();
@@ -41,9 +41,22 @@ namespace IntroToEF
                     SearchData();
                     break;
 
-                case 0:
+                case 4:
+                    Console.Clear();
+                    _nav.ShowKatana();
+                    Console.ReadKey();
+                    Console.Clear();
+                    MainMenu();
+                    break;
+
+                case 5:
                     Console.Clear();
                     Environment.Exit(0);
+                    break;
+
+                case 0:
+                    Console.Clear();
+                    MainMenu();
                     break;
             };
         }
@@ -96,7 +109,9 @@ namespace IntroToEF
         public void SelectSamurai()
         {
             _nav.MenuTopBanner("Update Samurai", "Delete Samurai");
-
+            Console.Write("Waiting for Database...");
+            Console.CursorLeft = 0;
+            _entityFactory.ListSamurai(_entityFactory.GetAllSamurai());
             switch (_nav.MenuOptions(2))
             {
                 case 1:
