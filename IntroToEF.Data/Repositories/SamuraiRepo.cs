@@ -1,4 +1,5 @@
 ﻿using IntroToEF.Data.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,14 @@ namespace IntroToEF.Data.Repositories
         public Samurai GetSamurai(string name)
         {
             return context.Samurais.FirstOrDefault(x => x.Name.ToLower() == name.ToLower());
+        }
+
+        public List<Samurai> GetSamurais()
+        {
+            return context.Samurais
+                .Include(x => x.Horses)
+                .Include(x => x.Quotes)
+                .ToList();
         }
     }
 }

@@ -109,7 +109,7 @@ namespace IntroToEF
         public void SelectSamurai()
         {
             _nav.MenuTopBanner("Update Samurai", "Delete Samurai");
-
+            _entityFactory.ListAllSamurai();
             switch (_nav.MenuOptions(2))
             {
                 case 1:

@@ -31,5 +31,11 @@ namespace IntroToEF.Business
             }
             return newSamurai;
         }
+
+        public List<Samurai> GetAllSamurais()
+        {
+            List<Samurai> samurais = _samuraiRepo.GetSamurais();
+            return samurais;
+        }
     }
 }
