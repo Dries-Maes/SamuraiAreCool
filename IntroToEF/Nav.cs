@@ -106,14 +106,27 @@ namespace IntroToEF.Business
 
         public void ShowKatana()
         {
-            string katana =
-@"                                          /\  S a m u r a i  A r e  C o o l ______,....------,
-                            /VVVVVVVVVVVVVV|=======================""""""""""""""""""        ___,..--'
-                            `^^^^^^^^^^^^^^|=========================-----------""""""""
-                                          \/";
+            //     string katana =
+
+            string k1 = @"              /\  S a m u r a i  A r e  C o o l ______,....------,";
+            string k2 = @"/VVVVVVVVVVVVVV|=======================""""""""""""""""""        ___,..--'";
+            string k3 = @"`^^^^^^^^^^^^^^|=========================-----------""""""""            ";
+            string k4 = @"              \/                                                  ";
+            Console.WriteLine("\n");
+            Console.WriteLine(PadLeftRight("Credits:", Console.WindowWidth));
+            Console.WriteLine(PadLeftRight("--------", Console.WindowWidth));
+            Console.WriteLine(PadLeftRight("Dries Maes", Console.WindowWidth));
+            Console.WriteLine(PadLeftRight("Kobe Delobelle", Console.WindowWidth));
+            Console.WriteLine(PadLeftRight("Ward Impe", Console.WindowWidth));
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(katana);
+            Console.WriteLine("\n");
+            Console.WriteLine(PadLeftRight(k1, Console.WindowWidth));
+            Console.WriteLine(PadLeftRight(k2, Console.WindowWidth));
+            Console.WriteLine(PadLeftRight(k3, Console.WindowWidth));
+            Console.WriteLine(PadLeftRight(k4, Console.WindowWidth));
             Console.ResetColor();
+            Console.WriteLine("\n");
+            Console.WriteLine(PadLeftRight("© 2021 All Rights Reserved", Console.WindowWidth));
         }
 
         public static bool IsYes()

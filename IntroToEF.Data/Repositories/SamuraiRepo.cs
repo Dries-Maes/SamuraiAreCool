@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IntroToEF.Data.Repositories
 {
-    public class SamuraiRepo
+    public class SamuraiRepo : ISamuraiRepo
     {
         private SamuraiAreCoolDBContext context;
 

@@ -58,7 +58,7 @@ namespace IntroToEF
                 if (result)
                 {
                     Console.WriteLine("Enter the quote:");
-                    samurai.Quotes.Add(_quoteLogic.CreateQuote(Console.ReadLine()));
+                    samurai.Quotes.Add(_quoteLogic.NewQuote(Console.ReadLine()));
                     Console.WriteLine("Quote has been added.");
                 }
             } while (result);

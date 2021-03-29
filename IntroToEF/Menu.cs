@@ -23,9 +23,9 @@ namespace IntroToEF
 
         public void MainMenu()
         {
-            _nav.MenuTopBanner("Add data", "Select Samurai", "Search Data");
+            _nav.MenuTopBanner("Add data", "Select Samurai", "Search Data", "Credits");
 
-            switch (_nav.MenuOptions(3))
+            switch (_nav.MenuOptions(4))
             {
                 case 1:
                     Console.Clear();
@@ -40,6 +40,14 @@ namespace IntroToEF
                 case 3:
                     Console.Clear();
                     SearchData();
+                    break;
+
+                case 4:
+                    Console.Clear();
+                    _nav.ShowKatana();
+                    Console.ReadKey();
+                    Console.Clear();
+                    MainMenu();
                     break;
 
                 case 0:
